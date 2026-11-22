@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookEase | Online Booking</title>
+<style>
+:root{--navy:#17233d;--blue:#5268e8;--teal:#22a6a1;--ink:#202a3d;--muted:#687386;--line:#e7ebf2;--bg:#f6f8fc}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}a{text-decoration:none;color:inherit}.wrap{width:min(1080px,92%);margin:auto}
+header{background:#fff;border-bottom:1px solid var(--line)}.nav{height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;font-size:1.4rem;color:var(--navy)}.logo span{color:var(--blue)}nav{display:flex;gap:25px;color:#58647a;font-size:.93rem}
+.hero{background:linear-gradient(120deg,#17233d,#304b88);color:#fff;padding:64px 0}.hero-grid{display:grid;grid-template-columns:1fr .8fr;gap:35px;align-items:center}.tag{color:#9de5df;font-size:.78rem;font-weight:bold;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(2.4rem,5vw,4rem);line-height:1.08;margin:14px 0}.hero p{color:#d7dfef;line-height:1.7;max-width:560px}.hero-card{background:#ffffff14;border:1px solid #ffffff35;padding:24px;border-radius:20px}.hero-card .big{font-size:3rem}.hero-card p{margin:5px 0}
+main{padding:48px 0 70px}.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:25px;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:17px;padding:25px;box-shadow:0 8px 25px #17233d08}.panel h2{margin:0 0 5px;color:var(--navy)}.sub{color:var(--muted);margin:0 0 22px;font-size:.94rem}
+label{display:block;font-size:.9rem;font-weight:700;margin:15px 0 7px}input,select,textarea{width:100%;padding:12px 13px;border:1px solid #dce2ec;border-radius:9px;font:inherit;color:var(--ink);background:#fff}input:focus,select:focus,textarea:focus{outline:2px solid #cbd4ff;border-color:var(--blue)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.service{border:1px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;background:white;text-align:left}.service.active{border:2px solid var(--blue);background:#f3f5ff}.service strong{display:block}.service small{color:var(--muted)}.service .symbol{font-size:1.5rem;margin-bottom:7px}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:9px}.slot{border:1px solid #dce2ec;border-radius:9px;padding:10px 5px;background:#fff;cursor:pointer}.slot.active{background:var(--blue);color:white;border-color:var(--blue)}.slot:disabled{opacity:.35;cursor:not-allowed}
+.btn{border:0;background:var(--blue);color:white;padding:13px 20px;border-radius:9px;font-weight:700;cursor:pointer}.btn:hover{background:#3e52cb}.btn.full{width:100%;margin-top:20px}.summary{background:#f3f6ff;border-radius:12px;padding:16px;margin-top:17px}.summary div{display:flex;justify-content:space-between;gap:10px;padding:6px 0}.summary strong{color:var(--navy)}.note{font-size:.82rem;color:var(--muted);line-height:1.5;margin-top:14px}
+.confirm{display:none;text-align:center;padding:30px 15px}.confirm .tick{font-size:3rem;color:var(--teal)}.confirm h2{color:var(--navy)}.booking-ref{display:inline-block;background:#eef8f7;color:#187d78;border-radius:8px;padding:8px 13px;font-weight:bold;margin:10px}
+footer{background:#111c32;color:#d4dbea;padding:28px 0;text-align:center;font-size:.88rem}
+@media(max-width:760px){.hero-grid,.layout{grid-template-columns:1fr}.hero{padding:48px 0}.services{grid-template-columns:1fr 1fr}nav{gap:12px;font-size:.82rem}.nav{height:auto;padding:18px 0;align-items:flex-start;gap:10px;flex-direction:column}}
+@media(max-width:460px){.grid2{grid-template-columns:1fr}.services{grid-template-columns:1fr 1fr}.slots{grid-template-columns:1fr 1fr}.panel{padding:18px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="logo" href="#">Book<span>Ease.</span></a><nav><a href="#home">Home</a><a href="#booking">Book Now</a><a href="#details">My Booking</a></nav></div></header>
+<section class="hero" id="home"><div class="wrap hero-grid"><div><div class="tag">Simple appointments. Less waiting.</div><h1>Make time for what matters.</h1><p>Choose a service, select a convenient date and time, and send your appointment request in just a few steps.</p><a class="btn" href="#booking">Book an Appointment</a></div><div class="hero-card"><div class="big">📅</div><h2>Easy Online Booking</h2><p>Pick a service · Choose a time · Confirm your details</p></div></div></section>
+<main class="wrap"><div class="layout">
+<section class="panel" id="booking"><h2>Book an Appointment</h2><p class="sub">Complete the details below to create a demo booking.</p>
+<form id="bookingForm">
+<label>Choose a service</label><div class="services">
+<button type="button" class="service active" data-service="Consultation" data-price="1500"><span class="symbol">💬</span><strong>Consultation</strong><small>Rs. 1,500</small></button>
+<button type="button" class="service" data-service="Personal Session" data-price="2500"><span class="symbol">✨</span><strong>Personal Session</strong><small>Rs. 2,500</small></button>
+<button type="button" class="service" data-service="Business Meeting" data-price="3500"><span class="symbol">💼</span><strong>Business Meeting</strong><small>Rs. 3,500</small></button>
+</div>
+<div class="grid2"><div><label for="date">Appointment date</label><input type="date" id="date" required></div><div><label for="time">Selected time</label><input id="time" readonly placeholder="Choose a time below" required></div></div>
+<label>Available time slots</label><div class="slots" id="slots"></div>
+<div class="grid2"><div><label for="name">Your name</label><input id="name" required placeholder="Enter your name"></div><div><label for="phone">Phone number</label><input id="phone" type="tel" required placeholder="07X XXX XXXX"></div></div>
+<label for="email">Email address</label><input id="email" type="email" required placeholder="you@example.com">
+<label for="message">Additional note (optional)</label><textarea id="message" rows="3" placeholder="Anything we should know?"></textarea>
+<button class="btn full" type="submit">Confirm Demo Booking</button>
+</form>
+<div class="confirm" id="confirmation"><div class="tick">✓</div><h2>Booking Request Created!</h2><p>Your demo appointment details are ready.</p><div class="booking-ref" id="reference"></div><div id="confirmText"></div><button class="btn" id="newBooking">Create Another Booking</button></div>
+</section>
+<aside class="panel" id="details"><h2>Booking Summary</h2><p class="sub">Your selected appointment details.</p><div class="summary"><div><span>Service</span><strong id="sumService">Consultation</strong></div><div><span>Appointment fee</span><strong id="sumPrice">Rs. 1,500</strong></div><div><span>Date</span><strong id="sumDate">Not selected</strong></div><div><span>Time</span><strong id="sumTime">Not selected</strong></div></div><p class="note">This is a front-end demonstration. Booking information is shown on this page only. It is not sent to a business, stored in a database, or used to make a real appointment.</p></aside>
+</div></main>
+<footer>© 2026 BookEase. Online Booking System – Concept Demo.</footer>
+<script>
+const slots=['09:00 AM','10:00 AM','11:00 AM','01:00 PM','02:00 PM','03:00 PM'];
+let chosenService='Consultation',chosenPrice=1500,chosenTime='';
+const dateInput=document.getElementById('date');
+const today=new Date();const localToday=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);
+dateInput.min=localToday;
+document.querySelectorAll('.service').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.service').forEach(x=>x.classList.remove('active'));btn.classList.add('active');
+ chosenService=btn.dataset.service;chosenPrice=Number(btn.dataset.price);
+ document.getElementById('sumService').textContent=chosenService;document.getElementById('sumPrice').textContent='Rs. '+chosenPrice.toLocaleString('en-US');
+}));
+const slotsEl=document.getElementById('slots');
+slots.forEach(time=>{const b=document.createElement('button');b.type='button';b.className='slot';b.textContent=time;b.addEventListener('click',()=>{document.querySelectorAll('.slot').forEach(x=>x.classList.remove('active'));b.classList.add('active');chosenTime=time;document.getElementById('time').value=time;document.getElementById('sumTime').textContent=time;});slotsEl.appendChild(b);});
+dateInput.addEventListener('change',()=>{document.getElementById('sumDate').textContent=dateInput.value||'Not selected';});
+document.getElementById('bookingForm').addEventListener('submit',e=>{
+ e.preventDefault();if(!chosenTime){alert('Please select an available time slot.');return;}
+ const ref='BE-'+Math.random().toString(36).slice(2,8).toUpperCase();
+ document.getElementById('reference').textContent='Reference: '+ref;
+ document.getElementById('confirmText').innerHTML='<p><strong>'+chosenService+'</strong><br>'+dateInput.value+' at '+chosenTime+'</p><p>Thank you, '+document.getElementById('name').value+'!</p>';
+ document.getElementById('bookingForm').style.display='none';document.getElementById('confirmation').style.display='block';
+});
+document.getElementById('newBooking').addEventListener('click',()=>{document.getElementById('bookingForm').reset();document.getElementById('bookingForm').style.display='block';document.getElementById('confirmation').style.display='none';chosenTime='';document.getElementById('time').value='';document.getElementById('sumTime').textContent='Not selected';document.getElementById('sumDate').textContent='Not selected';document.querySelectorAll('.slot').forEach(x=>x.classList.remove('active'));});
+</script>
+</body></html>
